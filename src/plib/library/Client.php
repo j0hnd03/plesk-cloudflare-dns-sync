@@ -214,6 +214,7 @@ class Modules_Cloudflaredns_Client
                         'type'    => $newRecord['type'],
                         'name'    => $newRecord['name'],
                         'content' => $newRecord['content'],
+                        'priority' => $newRecord['priority'],
                         'ttl'     => (int) Modules_Cloudflaredns_Form_Settings::getTtl($pleskDomain->getId()),
                         'proxied' => $proxied,
                     ]),
@@ -261,6 +262,7 @@ class Modules_Cloudflaredns_Client
                         'name'    => $updatedRecord['name'],
                         'content' => $updatedRecord['content'],
                         'ttl'     => (int) Modules_Cloudflaredns_Form_Settings::getTtl($pleskDomain->getId()),
+                        'priority' => $updatedRecord['priority'],
                     ]),
                 ]);
                 $handles[] = $ch;
@@ -330,6 +332,7 @@ class Modules_Cloudflaredns_Client
                     'name'    => $entry['name'],
                     'type'    => $entry['type'],
                     'content' => $entry['content'],
+                    'priority' => $entry['priority'],
                 ];
             }, $pleskRecords));
         }
@@ -413,6 +416,7 @@ class Modules_Cloudflaredns_Client
                 'ttl'           => $dnsEntry['ttl'],
                 'type'          => $dnsEntry['type'],
                 'content'       => $dnsEntry['content'],
+                'priority'      => $dnsEntry['priority'] ?? '',
                 'cloudflare_id' => $dnsEntry['id'],
             ];
         }
@@ -458,6 +462,7 @@ class Modules_Cloudflaredns_Client
                     'ttl'     => Modules_Cloudflaredns_Form_Settings::getTtl($pleskDomain->getId()),
                     'type'    => $localRecord['type'],
                     'content' => $localRecord['content'],
+                    'priority' => $localRecord['priority'],
                 ];
             }
 
@@ -483,6 +488,7 @@ APICALL;
                 $name = static::formatNameForCloudflare($domain, $localRecord['data']['host']);
                 $type = $localRecord['data']['type'];
                 $content = static::formatContentForCloudflare($domain, $localRecord['data']['value']);
+                $priority = $localRecord['data']['opt'];
 
                 if (($type === 'MX' && $name === '@') || $type === 'NS') {
                     continue;
@@ -493,6 +499,7 @@ APICALL;
                     'ttl'     => Modules_Cloudflaredns_Form_Settings::getTtl($pleskDomain->getId()),
                     'type'    => $type,
                     'content' => $content,
+                    'priority' => $priority,
                 ];
             }
         }
