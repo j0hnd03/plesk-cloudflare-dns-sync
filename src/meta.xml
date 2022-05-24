@@ -5,7 +5,7 @@
   <name>Cloudflare DNS</name>
   <description>This extension does a one-way sync of Plesk's DNS settings to Cloudflare.</description>
   <category>dns</category>
-  <version>1.4</version>
+  <version>1.4.1</version>
   <release>1</release>
   <vendor>Michael Dekker (Mods By Javier Puerto and abdullahazad) Maintain by Alejandro Trujillo J, (J0hnD03)</vendor>
   <url>https://github.com/j0hnd03/plesk-cloudflare-dns-sync</url>
