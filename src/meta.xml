@@ -7,7 +7,7 @@
   <category>dns</category>
   <version>1.4</version>
   <release>1</release>
-  <vendor>Michael Dekker (Mods By Javier Puerto and abdullahazad) Maintain by Alejandro Trujillo J, @J0hnD03</vendor>
+  <vendor>Michael Dekker (Mods By Javier Puerto and abdullahazad) Maintain by Alejandro Trujillo J, (J0hnD03)</vendor>
   <url>https://github.com/j0hnd03/plesk-cloudflare-dns-sync</url>
   <plesk_min_version>17.8</plesk_min_version>
   <!--Localized descriptions below-->
